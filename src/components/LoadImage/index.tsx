@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { ILIST_URL } from '../../interfaces';
-import { getUrlListImages } from '../../utils';
+import { ILIST_URL } from '@/interfaces';
+import { getUrlListImages } from '../../utils/index';
 
 type Props = {}
 
