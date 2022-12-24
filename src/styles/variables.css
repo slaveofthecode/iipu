@@ -1,3 +1,4 @@
 :root {
     --bg-color-main: #f5f5f5;
+    --layout-rows: 50px calc(100vh - 50px - 75px) 75px;
 }

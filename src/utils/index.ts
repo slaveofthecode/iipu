@@ -1,0 +1,1 @@
+export const getUrlListImages = () : string => process.env.REACT_APP_URL_LIST_IMAGES?.toString() || '';

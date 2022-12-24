@@ -7,6 +7,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import './styles/variables.css';
 import './styles/reset.scss';
+import './styles/classes.css';
 
 import App from './App';
 
