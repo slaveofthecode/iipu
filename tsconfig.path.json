@@ -21,7 +21,7 @@
                 "src/styles/*"
             ],
             "@components/*": [
-                "src/components/*"
+                "src/components/*",
             ],
             "@hooks/*": [
                 "src/hooks/*"

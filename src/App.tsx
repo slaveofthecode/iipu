@@ -1,9 +1,10 @@
-import ImageRendering from './components/ImageRendering'
-import LoadImage from './components/LoadImage'
-import MenuOptions from './components/MenuOptions'
-import UrlGenerated from './components/UrlGenerated'
 
 import './styles/layout.scss';
+import LoadImage from '@/components/LoadImage';
+import ImageRendering from '@/components/ImageRendering';
+import UrlGenerated from '@/components/UrlGenerated';
+import ActionsApplyImage from '@/components/ActionsApplyImage';
+
 
 type Props = {}
 
@@ -15,13 +16,12 @@ const App = (props: Props) => {
       </header>
 
       <main className='d-flex m-2'>
-        <MenuOptions />
         <ImageRendering />
       </main>
 
-
       <footer>
         <UrlGenerated />
+        <ActionsApplyImage />
       </footer>
     </>
   )
