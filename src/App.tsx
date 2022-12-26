@@ -19,7 +19,7 @@ const App = (props: Props) => {
         <ImageRendering />
       </main>
 
-      <footer>
+      <footer className='d-flex flex-column m-2'>
         <UrlGenerated />
         <ActionsApplyImage />
       </footer>
