@@ -12,3 +12,9 @@
         list-style: none;        
     }
  }
+
+ ::placeholder {
+   color: #ccc;
+   font-size: 14px;
+   font-style: italic;
+ }

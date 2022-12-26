@@ -23,6 +23,9 @@
             "@components/*": [
                 "src/components/*",
             ],
+            "@HOC/*": [
+                "src/HOC/*"
+            ],
             "@hooks/*": [
                 "src/hooks/*"
             ],

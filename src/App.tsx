@@ -1,19 +1,31 @@
 
-import './styles/layout.scss';
+import { useEffect, useState } from 'react';
 import LoadImage from '@/components/LoadImage';
 import ImageRendering from '@/components/ImageRendering';
 import UrlGenerated from '@/components/UrlGenerated';
 import ActionsApplyImage from '@/components/ActionsApplyImage';
+import withModal from './HOC/withModal';
+
+import './styles/layout.scss';
 
 
 type Props = {}
 
 const App = (props: Props) => {
+
+  const [showLoadImage, setShowLoadImage] = useState(false);
+
+  useEffect(() => {
+    setShowLoadImage(true);
+  }, [])
+
+  const LoadImageModal = withModal(LoadImage);
+
   return (
     <>
-      <header>
+      {/* <header>
         <LoadImage />
-      </header>
+      </header> */}
 
       <main className='d-flex m-2'>
         <ImageRendering />
@@ -23,6 +35,11 @@ const App = (props: Props) => {
         <UrlGenerated />
         <ActionsApplyImage />
       </footer>
+
+      {
+        showLoadImage && <LoadImageModal test='jeje' />
+      }
+
     </>
   )
 }

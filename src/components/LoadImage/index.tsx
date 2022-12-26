@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { ILIST_URL } from '@/interfaces';
 import { getUrlListImages } from '@/utils';
 
-type Props = {}
+type Props = {
+  test: string
+}
 
-const LoadImage = (props: Props) => {
+const LoadImage = ({ test }: Props) => {
 
   const [listUrl, setListUrl] = useState<ILIST_URL[]>([]);
+  const [imageSelected, setImageSelected] = useState();
 
   useEffect(() => {
     const url = getUrlListImages();
@@ -18,23 +21,36 @@ const LoadImage = (props: Props) => {
 
   }, []);
 
+  const handleOnChangeSelectImage = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value, selectedOptions } = e.target;
+
+    const text = selectedOptions[0].text;
+
+    console.log('e.target.value', text);
+    console.log('e.target.value', value);
+  }
+
   return (
-    <div className='d-flex justify-content-between m-2 bg-light'>
+    <div className='d-flex justify-content-between align-items-center gap-4 w-75 fs-1'>
+
       <div className='w-100'>
-        <input list="listImages" name="listImages" className='form-control w-100' placeholder='select image to load...' />
-        <datalist id='listImages'>
+        <select className='form-select w-100 py-5 px-3 fs-1' placeholder='Select an image...' onChange={handleOnChangeSelectImage} >
+          <option disabled selected value={-1} > -- select an option -- </option>
           {
             listUrl.map((item, index) => {
-              return <option key={index} value={item.url} >{item.name}</option>
+              return <option key={index} value={item.url} >{item.name}
+              </option>;
             })
           }
-        </datalist>
+        </select>
       </div>
-      <div className='w-auto ms-2'>
-        <button className='btn btn-primary w-100'>
-          <i className="bi bi-upload"></i>
+      <span> or </span>
+      <div className='w-auto'>
+        <button className='btn btn-primary w-100 p-5' title='Upload a new file' >
+          <i className="bi bi-upload fs-1"></i>
         </button>
       </div>
+
     </div>
   );
 }
