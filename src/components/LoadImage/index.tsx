@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ILIST_URL } from '@/interfaces';
 import { getUrlListImages } from '@/utils';
+import { useApp } from '@/store/app';
 
 type Props = {
   test: string
@@ -8,8 +9,11 @@ type Props = {
 
 const LoadImage = ({ test }: Props) => {
 
+  const { loadImage } = useApp();
+
   const [listUrl, setListUrl] = useState<ILIST_URL[]>([]);
   const [imageSelected, setImageSelected] = useState();
+
 
   useEffect(() => {
     const url = getUrlListImages();
@@ -26,16 +30,20 @@ const LoadImage = ({ test }: Props) => {
 
     const text = selectedOptions[0].text;
 
-    console.log('e.target.value', text);
-    console.log('e.target.value', value);
+    console.log('Ejecuto el store App -> ', text, value);
+    loadImage.execute();
   }
 
   return (
     <div className='d-flex justify-content-between align-items-center gap-4 w-75 fs-1'>
 
+      {
+        loadImage.isLoading ? <div>Loading...</div> : null
+      }
+
       <div className='w-100'>
-        <select className='form-select w-100 py-5 px-3 fs-1' placeholder='Select an image...' onChange={handleOnChangeSelectImage} >
-          <option disabled selected value={-1} > -- select an option -- </option>
+        <select className='form-select w-100 py-5 px-3 fs-1' placeholder='Select an image...' onChange={handleOnChangeSelectImage} defaultValue={-1} >
+          <option disabled value={-1} > -- select an option -- </option>
           {
             listUrl.map((item, index) => {
               return <option key={index} value={item.url} >{item.name}

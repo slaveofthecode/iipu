@@ -6,7 +6,7 @@ type withModalProps = {
 
 const withModal = (Component: React.FunctionComponent<any>, withModalProp?: withModalProps) => (props: any) => {
 
-    console.log('POSITION', withModalProp ?? 'CENTER');
+    // console.log('POSITION', withModalProp ?? 'CENTER');
 
     return (
         <div className='modal-center' >

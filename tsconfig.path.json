@@ -17,6 +17,12 @@
             "@icons/*": [
                 "src/assets/icons/*"
             ],
+            "@services": [
+                "src/services"
+            ],
+            "@store/*": [
+                "src/store/*"
+            ],
             "@styles/*": [
                 "src/styles/*"
             ],
