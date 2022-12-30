@@ -1,4 +1,3 @@
-// import { ACTION_SUFFIX } from '@store/interfaces';
 import { handleActions } from 'redux-actions';
 import { ACTIONS } from './actions';
 import { ACTION_SUFFIX } from '../interfaces';
@@ -22,6 +21,19 @@ const appState: IAppState = {
 export type AppState = typeof appState;
 
 const LOAD_IMAGE = {  
+  [`${ACTIONS.LOAD_IMAGE}`]: (
+    state: IAppState,
+    action: { payload: any }    
+  ) => {
+    console.log(`${ACTIONS.LOAD_IMAGE} -->`, action.payload.data);
+    return {
+      ...state,
+      loadImage: {
+        isLoading: false,
+        data: action.payload,
+      },
+    };
+  },
   [`${ACTIONS.LOAD_IMAGE}${ACTION_SUFFIX._PENDING}`]: (state: IAppState) => ({
     ...state,
     loadImage: {
@@ -33,7 +45,7 @@ const LOAD_IMAGE = {
     state: IAppState,
     action: { payload: any }    
   ) => {
-    console.log('action.payload -> ', action.payload);
+    console.log(`${ACTIONS.LOAD_IMAGE}${ACTION_SUFFIX._FULFILLED} -->`, action.payload.data);
     return {
       ...state,
       loadImage: {

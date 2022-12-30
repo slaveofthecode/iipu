@@ -24,5 +24,8 @@ export const loadImage = async ()  => {
         setTimeout(() => {
           resolve('imagen cargada vamooo');
         }, 5000);
+      }).then(data => {
+            console.log('DATA -> ', data);
+            return data;
       });
 };
