@@ -1,7 +1,7 @@
-  import { loadImage } from './app';
+  import { loadImageService } from './app';
     
   const app = {
-    loadImage,
+    loadImageService,
   };
   
   export {

@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
-import appReducer, { AppState } from './app/reducer';
+import { AppState, appReducer } from './app/appReducer';
+
 
 
 export const rootReducer = combineReducers({    
@@ -9,4 +10,3 @@ export const rootReducer = combineReducers({
 export interface State {
     app: AppState;
 }
-

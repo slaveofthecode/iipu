@@ -1,18 +1,9 @@
-export const loadImage = async ()  => {
+export const loadImageService= async ()  => {
 
     // const response = await fetch('https://picsum.photos/200/300');
     // const blob = await response.blob();
     console.log('...cargando imagen');
     // return blob;
-
-    // return await new Promise(resolve => {
-    //     setTimeout(() => {
-    //         resolve('imagen cargada');
-    //     }, 5000);
-    // }).then(data => {
-    //     console.log('DATA -> ', data);
-    //     return data;
-    // });
 
     // return new Promise(resolve => {
     //     setTimeout(() => {
@@ -20,12 +11,21 @@ export const loadImage = async ()  => {
     //     }, 5000);
     // });
 
+    // return await new Promise((resolve) => {
+    //     setTimeout(() => {
+    //       resolve('imagen cargada vamooo');
+    //     }, 5000);
+    //   }).then(data => {
+    //         console.log('DATA -> ', data);
+    //         return data;
+    //   });
+
     return await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve('imagen cargada vamooo');
-        }, 5000);
-      }).then(data => {
-            console.log('DATA -> ', data);
-            return data;
-      });
+      setTimeout(() => {
+        resolve('imagen cargada vamooo');
+      }, 5000);
+    }).then(data => {
+          console.log('DATA -> ', data);
+          return data;
+    });
 };

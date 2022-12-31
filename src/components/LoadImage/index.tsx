@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { ILIST_URL } from '@/interfaces';
 import { getUrlListImages } from '@/utils';
-import { loadImage } from '@/store/app';
 import { useDispatch } from 'react-redux';
+// import { loadImageFetch } from '@/store/app';
+import { getLoading } from '@/store/app/appReducer';
 
 type Props = {
   test: string
@@ -10,10 +11,10 @@ type Props = {
 
 const LoadImage = ({ test }: Props) => {
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
 
   const [listUrl, setListUrl] = useState<ILIST_URL[]>([]);
-  const [imageSelected, setImageSelected] = useState();
+  // const [imageSelected, setImageSelected] = useState();
 
 
   useEffect(() => {
@@ -32,7 +33,9 @@ const LoadImage = ({ test }: Props) => {
     const text = selectedOptions[0].text;
 
     console.log('Ejecuto el store App -> ', text, value);
-    dispatch(loadImage());
+    // dispatch(loadImage());
+    // dispatch(loadImageFetch());
+    dispatch(getLoading());
   }
 
   return (

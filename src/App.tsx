@@ -16,8 +16,12 @@ type Props = {}
 
 const App = (props: Props) => {
 
-  const storeApp = useSelector((state: any) => state);
-  const { isLoading, data, error } = storeApp.app;
+  // const storeApp = useSelector((state: any) => state);
+  // const { isLoading, data, error } = storeApp.app;
+
+  // const dispatch = useDispatch();
+  const { isLoading, data, error } = useSelector((state: any) => state.app);
+
 
   useEffect(() => {
     console.log('init - ', { isLoading, data, error });
@@ -49,7 +53,7 @@ const App = (props: Props) => {
         isLoading && <span>Loadiing...</span>
       }
 
-      <span>{JSON.stringify(storeApp)}</span>
+      <span>{JSON.stringify(data)}</span>
 
       <main className='d-flex m-2'>
         <ImageRendering />
