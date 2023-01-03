@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { ILIST_URL } from '@/interfaces';
-import { getUrlListImages } from '@/utils';
 import { useDispatch } from 'react-redux';
-// import { loadImageFetch } from '@/store/app';
-import { getLoading } from '@/store/app/appReducer';
+import { ILIST_URL } from '@/interfaces';
+import { getListImagesService } from '@/services/app';
+import { getLoading } from '@/store/app/actions';
 
 type Props = {
   test: string
@@ -14,27 +13,23 @@ const LoadImage = ({ test }: Props) => {
   const dispatch = useDispatch<any>();
 
   const [listUrl, setListUrl] = useState<ILIST_URL[]>([]);
-  // const [imageSelected, setImageSelected] = useState();
-
 
   useEffect(() => {
-    const url = getUrlListImages();
-    fetch(url)
-      .then(res =>
-        res.json().then(data => {
-          setListUrl(data);
-        }));
+
+    const getListImages = async () => {
+      const listImages = await getListImagesService();
+      setListUrl(listImages);
+    };
+
+    getListImages();
 
   }, []);
 
   const handleOnChangeSelectImage = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { value, selectedOptions } = e.target;
-
     const text = selectedOptions[0].text;
 
     console.log('Ejecuto el store App -> ', text, value);
-    // dispatch(loadImage());
-    // dispatch(loadImageFetch());
     dispatch(getLoading());
   }
 

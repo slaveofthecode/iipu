@@ -18,16 +18,6 @@ const MenuOptions = (props: Props) => {
             </ul>
         </div>
     );
-
-    // return (
-    //     <Dropdown.Menu show>
-    //         <Dropdown.Item eventKey="1">Action 1</Dropdown.Item>
-    //         <Dropdown.Item eventKey="2">Action 2</Dropdown.Item>
-    //         <Dropdown.Item eventKey="3">Action 3</Dropdown.Item>
-    //         <Dropdown.Divider />
-    //         <Dropdown.Item eventKey="4">History</Dropdown.Item>
-    //     </Dropdown.Menu>
-    // )
 }
 
 export default MenuOptions

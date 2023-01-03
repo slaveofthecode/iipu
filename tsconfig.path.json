@@ -17,9 +17,6 @@
             "@icons/*": [
                 "src/assets/icons/*"
             ],
-            "@services": [
-                "src/services"
-            ],
             "@store/*": [
                 "src/store/*"
             ],
@@ -27,7 +24,7 @@
                 "src/styles/*"
             ],
             "@components/*": [
-                "src/components/*",
+                "src/components/*"
             ],
             "@HOC/*": [
                 "src/HOC/*"

@@ -1,13 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux'
 import LoadImage from '@/components/LoadImage';
 import ImageRendering from '@/components/ImageRendering';
 import UrlGenerated from '@/components/UrlGenerated';
 import ActionsApplyImage from '@/components/ActionsApplyImage';
 import withModal from './HOC/withModal';
-
-import { useSelector } from 'react-redux'
 
 import './styles/layout.scss';
 
@@ -16,33 +15,27 @@ type Props = {}
 
 const App = (props: Props) => {
 
-  // const storeApp = useSelector((state: any) => state);
-  // const { isLoading, data, error } = storeApp.app;
-
-  // const dispatch = useDispatch();
-  const { isLoading, data, error } = useSelector((state: any) => state.app);
-
+  const { getLoading } = useSelector((state: any) => state.app);
 
   useEffect(() => {
-    console.log('init - ', { isLoading, data, error });
+    console.log('init -> getLoading', { getLoading });
   }, []);
 
   useEffect(() => {
-    console.log('.data', data);
-  }, [data]);
+    console.log('.data', getLoading.data);
+  }, [getLoading.data]);
 
   useEffect(() => {
-    console.log('.isLoading', isLoading);
-  }, [isLoading]);
+    console.log('.isLoading', getLoading.isLoading);
+  }, [getLoading.isLoading]);
 
   useEffect(() => {
-    console.log('.error', error);
-  }, [error]);
-
-
+    console.log('.error', getLoading.error);
+  }, [getLoading.error]);
 
   const LoadImageModal = withModal(LoadImage);
 
+  // TODO - re-structure all this code
   return (
     <>
       {/* <header>
@@ -50,10 +43,10 @@ const App = (props: Props) => {
       </header> */}
 
       {
-        isLoading && <span>Loadiing...</span>
+        getLoading.isLoading && <span>Loading...</span>
       }
 
-      <span>{JSON.stringify(data)}</span>
+      <span>{JSON.stringify(getLoading, null, 4)}</span>
 
       <main className='d-flex m-2'>
         <ImageRendering />
@@ -65,7 +58,7 @@ const App = (props: Props) => {
       </footer>
 
       {
-        !data && <LoadImageModal test='jeje' />
+        !getLoading.data && <LoadImageModal test='here possible data to pass...' />
       }
 
     </>

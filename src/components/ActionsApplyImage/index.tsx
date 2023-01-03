@@ -22,36 +22,10 @@ const ActionsApplyImage = (props: Props) => {
 
     const [controlSetting, setControlSetting] = useState<JSX.Element>();
 
-    // const drawControlSettings = () => RENDER[controlSetting];
-
-
     useEffect(() => {
         setControlSetting(RENDER['crop']);
 
     }, []);
-
-
-    // return (
-    //     <div>
-    //         <ul classNameName="nav nav-pills nav-pills">
-    //             <li classNameName="nav-item">
-    //                 <a classNameName="nav-link active" aria-current="page" href="#">Active</a>
-    //             </li>
-    //             <li classNameName="nav-item">
-    //                 <a classNameName="nav-link" href="#">Much longer nav link</a>
-    //             </li>
-    //             <li classNameName="nav-item">
-    //                 <a classNameName="nav-link" href="#">Link</a>
-    //             </li>
-    //             <li classNameName="nav-item">
-    //                 <a classNameName="nav-link disabled">Disabled</a>
-    //             </li>
-    //         </ul>
-    //         <div>
-    //             {controlSetting}
-    //         </div>
-    //     </div>
-    // );
 
     return (
         <>

@@ -1,24 +1,9 @@
+import { getUrlListImages } from '@/utils';
+import { MOCK } from './mocks';
+
 export const loadImageService= async ()  => {
 
-    // const response = await fetch('https://picsum.photos/200/300');
-    // const blob = await response.blob();
     console.log('...cargando imagen');
-    // return blob;
-
-    // return new Promise(resolve => {
-    //     setTimeout(() => {
-    //         resolve('imagen cargada');
-    //     }, 5000);
-    // });
-
-    // return await new Promise((resolve) => {
-    //     setTimeout(() => {
-    //       resolve('imagen cargada vamooo');
-    //     }, 5000);
-    //   }).then(data => {
-    //         console.log('DATA -> ', data);
-    //         return data;
-    //   });
 
     return await new Promise((resolve) => {
       setTimeout(() => {
@@ -29,3 +14,18 @@ export const loadImageService= async ()  => {
           return data;
     });
 };
+
+export const getListImagesService = async () => {
+   
+  const url: any = getUrlListImages();
+
+  return await fetch(url)
+      .then(res =>
+        res.json().then(data => {
+          return data;
+        }))
+      .catch((err) => {
+        return MOCK.listImages;
+      });
+
+}
