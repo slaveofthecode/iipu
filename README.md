@@ -1,3 +1,8 @@
+# This repo is pending to complete
+- https://doc.clickup.com/p/h/e12h-16003/63893828860e740
+- https://www.figma.com/file/eLlLxsfSpZi1DpbqhW17Nu/IIPU?node-id=0%3A1
+- https://react-redux.js.org/tutorials/quick-start
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
